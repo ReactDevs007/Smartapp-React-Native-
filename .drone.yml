@@ -1,0 +1,29 @@
+kind: pipeline
+name : default
+#
+# steps:
+# - name: build
+#   image: node:8-alpine
+#   commands:
+#     - apk add bash
+#     - yarn install
+#     - yarn build	
+steps:
+- name: build
+  image: node:8-alpine
+  commands:
+    - apk add bash
+    - yarn global add expo-cli
+    - yarn install
+    - expo publish
+
+- name: publish-s3
+  image: plugins/s3
+  settings:
+    bucket: expo-app
+    access_key: AKIAZ2V3CNBTWKJQPD7N
+    secret_key: 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
+    region: us-east-1
+    strip_prefix: dist/
+    source: dist/**/*
+    target: /
