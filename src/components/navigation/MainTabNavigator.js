@@ -13,7 +13,7 @@ const ManualStack = createStackNavigator({
 });
 
 ManualStack.navigationOptions = {
-  tabBarLabel: 'Manual',
+  tabBarLabel: 'Mode',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -65,8 +65,8 @@ Temperature.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  //ManualStack,
   ScheduleStack,
   SensorStack,
-  Temperature
+  Temperature,
+  ManualStack,
 });

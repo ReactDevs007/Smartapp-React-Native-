@@ -12,6 +12,25 @@ export default class BlindsService {
       //alert(`Cannot fetch blinds info - ${error}`);
     }
   }
+  async fetchEspMode() {
+    try {
+      const result = await axios.get(`${BASE_URL}/schedule/getespmode`);
+      return result.data;
+    } catch (error) {
+      //alert(`Cannot fetch blinds info - ${error}`);
+    }
+  }
+
+  async setEspMode(state) {
+    try {
+      //alert.alert(state+"cc");
+      const result = await axios.patch(`${BASE_URL}/schedule/setespmode`, { state });
+      return result.data;
+    } catch (error) {
+     alert(`Cannot set blinds state - ${error}`);
+    }
+  }
+
 
   async setBlindsState(state) {
     try {

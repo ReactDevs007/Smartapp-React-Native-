@@ -40,6 +40,7 @@ export default class TemperatureScreen extends React.Component {
     super(props);
 
     const sensorPreference = props.blindsStore.sensorPreference;
+    //const sensorPreference = 80;
     this.state = {
       sensorPreference,
       presentSensorPreferenceValue: sensorPreference
@@ -69,7 +70,7 @@ export default class TemperatureScreen extends React.Component {
   syncSensorPreference = () => {
     const sensorPreference = this.props.blindsStore.sensorPreference;
     this.setState({
-      sensorPreference,
+      //sensorPreference,
       presentSensorPreference: sensorPreference
     });
   }
